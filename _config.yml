@@ -62,6 +62,7 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - CV          # git submodule with the private LaTeX CV: never publish it
   - README.md
   - Gemfile
   - Gemfile.lock

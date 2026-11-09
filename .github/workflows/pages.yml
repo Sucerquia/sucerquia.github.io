@@ -1,0 +1,57 @@
+# Builds the Jekyll site and publishes it to https://sucerquia.github.io
+# on every push to `main` (it can also be started by hand from the Actions tab).
+#
+# One-time setup on GitHub: Settings → Pages → Build and deployment →
+# Source: "GitHub Actions".
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permissions needed to deploy to GitHub Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Run one deployment at a time; let a running deployment finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository (without submodules)
+        uses: actions/checkout@v7
+        with:
+          # Never fetch submodules: CV/ is the private LaTeX CV on Overleaf
+          # (it includes referees' contact details) and must not be published.
+          submodules: false
+
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v6
+
+      # Same Jekyll version and plugins as GitHub's own Pages build (github-pages gem).
+      - name: Build the site with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Upload the built site
+        uses: actions/upload-pages-artifact@v5
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -2,9 +2,10 @@
 
 Source of my personal website: **<https://sucerquia.github.io>**
 
-The site is built with [Jekyll](https://jekyllrb.com) and published by GitHub Pages on
-every push to `main`. It does not depend on an external theme: layouts, styles and icons
-all live in this repository.
+The site is built with [Jekyll](https://jekyllrb.com) and published to GitHub Pages by the
+workflow in `.github/workflows/pages.yml` on every push to `main` (repository setting:
+Settings → Pages → Source: "GitHub Actions"). It does not depend on an external theme:
+layouts, styles and icons all live in this repository.
 
 ## Where things live
 
