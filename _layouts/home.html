@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<section class="hero" aria-labelledby="hero-name">
+  <img class="hero__photo" src="{{ site.author.photo | relative_url }}" width="200" height="200"
+       alt="Portrait of {{ site.author.name }}">
+  <div class="hero__text">
+    <p class="kicker">{{ site.author.role }}</p>
+    <h1 class="hero__name" id="hero-name">{{ site.author.name }}</h1>
+    <p class="hero__affiliation">
+      {%- for affiliation in site.affiliations -%}
+        <a href="{{ affiliation.url }}">{{ affiliation.name }}</a>{% unless forloop.last %} &amp; {% endunless %}
+      {%- endfor -%}
+    </p>
+    <p class="hero__tagline">{{ site.tagline }}</p>
+    {% include social.html %}
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <h2 class="section-title" id="about-title">About</h2>
+  <div class="prose">
+    {{ content }}
+  </div>
+</section>
+
+<section class="section" id="research" aria-labelledby="research-title">
+  <h2 class="section-title" id="research-title">Research</h2>
+  <div class="cards">
+    {%- for topic in site.data.research %}
+    <article class="card{% if topic.featured %} card--featured{% endif %}">
+      <p class="card__kicker">{{ topic.label }}</p>
+      <h3 class="card__title">{{ topic.title }}</h3>
+      <p class="card__text">{{ topic.summary }}</p>
+      {%- if topic.links %}
+      <ul class="card__links">
+        {%- for link in topic.links %}
+        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="section" id="publications" aria-labelledby="publications-title">
+  <h2 class="section-title" id="publications-title">Recent publications</h2>
+  {%- assign publications = site.data.publications | sort: "date" | reverse %}
+  <ol class="pubs">
+    {%- for pub in publications limit: 3 %}
+    {% include publication.html pub=pub %}
+    {%- endfor %}
+  </ol>
+  <a class="more" href="{{ '/publications/' | relative_url }}">All publications {% include icon.html name="arrow-right" %}</a>
+</section>
+
+<section class="section" id="software" aria-labelledby="software-title">
+  <h2 class="section-title" id="software-title">Software &amp; tutorials</h2>
+  <ul class="projects">
+    {%- for project in site.data.software %}
+    <li class="project">
+      <div class="project__head">
+        <h3 class="project__name">{{ project.name }}</h3>
+        {%- if project.role %}<span class="tag">{{ project.role }}</span>{% endif %}
+      </div>
+      <p class="project__text">{{ project.summary }}</p>
+      <ul class="chips">
+        {%- for link in project.links %}
+        <li><a class="chip" href="{{ link.url }}">{{ link.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>

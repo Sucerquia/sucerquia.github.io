@@ -1,0 +1,35 @@
+---
+layout: page
+title: Software
+description: "Scientific software and tutorials by Daniel Sucerquia Gaviria: roles, code and documentation."
+permalink: /software/
+---
+<p class="page-intro">
+  Scientific software and tutorials I develop or contribute to, with my role in each project.
+</p>
+
+<div class="software-grid">
+  {%- for project in site.data.software %}
+  <article class="software-card{% if project.featured %} software-card--featured{% endif %}">
+    {%- if project.images %}
+    <div class="software-card__media">
+      {%- for image in project.images %}
+      <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" loading="lazy">
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    <div class="software-card__body">
+      <div class="project__head">
+        <h2 class="project__name">{{ project.name }}</h2>
+        {%- if project.role %}<span class="tag">{{ project.role }}</span>{% endif %}
+      </div>
+      <p class="project__text">{{ project.summary }}</p>
+      <ul class="chips">
+        {%- for link in project.links %}
+        <li><a class="chip" href="{{ link.url }}">{{ link.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </article>
+  {%- endfor %}
+</div>

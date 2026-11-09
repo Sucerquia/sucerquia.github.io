@@ -1,0 +1,35 @@
+---
+layout: page
+title: Publications
+description: Peer-reviewed publications by Daniel Sucerquia Gaviria, with DOIs, preprints and code.
+permalink: /publications/
+---
+{%- assign publications = site.data.publications | sort: "date" | reverse %}
+{%- assign years = publications | group_by: "year" %}
+
+<p class="page-intro">
+  Peer-reviewed articles, most recent first. My name is shown in <strong class="me">bold</strong>.
+  {%- if site.author.orcid %}
+  The same list is kept up to date on <a href="https://orcid.org/{{ site.author.orcid }}">ORCID</a>.
+  {%- endif %}
+  {%- if site.author.scholar %}
+  Citations are tracked on <a href="https://scholar.google.com/citations?user={{ site.author.scholar }}">Google Scholar</a>.
+  {%- endif %}
+</p>
+
+<nav class="year-nav" aria-label="Jump to year">
+  {%- for group in years %}
+  <a href="#y{{ group.name }}">{{ group.name }}</a>
+  {%- endfor %}
+</nav>
+
+{%- for group in years %}
+<section class="year-group" aria-labelledby="y{{ group.name }}">
+  <h2 class="year-heading" id="y{{ group.name }}">{{ group.name }}</h2>
+  <ol class="pubs">
+    {%- for pub in group.items %}
+    {% include publication.html pub=pub %}
+    {%- endfor %}
+  </ol>
+</section>
+{%- endfor %}

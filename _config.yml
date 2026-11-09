@@ -1,1 +1,71 @@
-theme: jekyll-theme-cayman
+# =============================================================================
+#  Site configuration for https://sucerquia.github.io
+#  Personal details live here; page content lives in index.md and _data/*.yml.
+#  When previewing locally, restart `jekyll serve` after editing this file.
+# =============================================================================
+
+title: Daniel Sucerquia Gaviria
+tagline: Multiscale modeling, quantum chemistry and machine learning for molecular systems
+description: >-
+  Daniel Sucerquia Gaviria is a PhD candidate in physics at the Heidelberg
+  Institute for Theoretical Studies (HITS) and the Max Planck Institute for
+  Polymer Research (MPIP), working on multiscale modeling, quantum chemistry
+  and machine learning for molecular systems.
+url: "https://sucerquia.github.io"
+baseurl: ""
+lang: en
+timezone: Europe/Berlin
+repository: Sucerquia/sucerquia.github.io
+
+# --- About me ----------------------------------------------------------------
+# Leave a field empty to hide its link everywhere on the site.
+author:
+  name: Daniel Sucerquia Gaviria
+  short_name: Daniel Sucerquia
+  initials: DS
+  role: PhD candidate in Physics
+  highlight: Sucerquia          # author names containing this are shown in bold
+  photo: /assets/img/profile.png
+  email: daniel.sucerquia@mpip-mainz.mpg.de
+  github: Sucerquia
+  orcid: "0000-0003-1287-0153"
+  scholar: "9hiuODkAAAAJ"       # Google Scholar id: the "user=" part of your profile URL
+  linkedin: daniel-sucerquia-gaviria-929184123   # LinkedIn handle: the part after linkedin.com/in/
+
+affiliations:
+  - name: Heidelberg Institute for Theoretical Studies
+    short: HITS
+    url: https://www.h-its.org
+  - name: Max Planck Institute for Polymer Research
+    short: MPIP
+    url: https://www.mpip-mainz.mpg.de
+
+navigation:
+  - title: About
+    url: /
+  - title: Research
+    url: /#research
+  - title: Software
+    url: /software/
+  - title: Publications
+    url: /publications/
+  - title: CV
+    url: /cv/
+
+# --- Build -------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache

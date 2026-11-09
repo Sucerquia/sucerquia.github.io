@@ -1,0 +1,49 @@
+# Selected scientific events, newest first (CV page).
+# `badge` (optional) is shown as a highlighted tag; `link` is optional.
+
+- date: 6–8 May 2026
+  name: 4th SIMPLAIX Workshop “Machine Learning for Multiscale Molecular Modeling”
+  place: Heidelberg, Germany
+  role: Poster presenter
+
+- date: 7–9 May 2025
+  name: 3rd SIMPLAIX Workshop “Machine Learning for Multiscale Molecular Modeling”
+  place: Heidelberg, Germany
+  role: Organizer and poster presenter
+  badge: Organizer
+
+- date: 15–19 Feb 2025
+  name: Biophysical Society Meeting
+  place: Los Angeles, USA
+  role: Poster presenter
+  link:
+    label: Abstract
+    url: https://doi.org/10.1016/j.bpj.2024.11.2578
+
+- date: 21–24 May 2024
+  name: Chemical Compound Space Conference
+  place: Heidelberg, Germany
+  role: Attendee
+
+- date: 15–17 May 2024
+  name: 2nd SIMPLAIX Workshop “Machine Learning for Multiscale Molecular Modeling”
+  place: Heidelberg, Germany
+  role: Organizer and poster presenter
+  badge: Organizer
+
+- date: 19–20 April 2024
+  name: Computer Simulation and Theory of Macromolecules
+  place: Hünfeld, Germany
+  role: Poster presenter
+
+- date: 24 October 2023
+  name: BioExcel Webinar
+  place: Online
+  role: Speaker
+  badge: Talk
+
+- date: 10–15 Sep 2023
+  name: BioExcel Summer School on Biomolecular Simulations
+  place: Pula, Italy
+  role: Poster presenter
+  badge: Poster prize

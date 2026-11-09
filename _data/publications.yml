@@ -1,0 +1,72 @@
+# Peer-reviewed publications.
+# - `date` (YYYY-MM-DD, quoted) sets the order; `year` sets the group heading.
+# - Authors containing `author.highlight` from _config.yml are shown in bold.
+# - Optional fields: preprint, code, author_count, pages/number, links (label + url).
+# Metadata checked against Crossref and ORCID (0000-0003-1287-0153).
+
+- title: "SITH: A quantum-chemical framework for predicting bond destabilization in stretched molecules"
+  authors: [D. Sucerquia, M. Farrugia, B. Rennekamp, A. Dreuw, F. Gräter]
+  journal: The Journal of Chemical Physics
+  volume: 164
+  number: 234103
+  year: 2026
+  date: "2026-06-15"
+  doi: 10.1063/5.0325167
+  code: https://github.com/graeter-group/sith
+
+- title: "KIMMDY: a biomolecular reaction emulator"
+  authors: [E. Hartmann, J. Buhr, K. Riedmiller, E. Ulanov, B. N. Schüpp, D. Kiesewetter, D. Sucerquia, C. Aponte-Santamaría, F. Gräter]
+  journal: Nature Communications
+  volume: 17
+  number: 3500
+  year: 2026
+  date: "2026-04-14"
+  doi: 10.1038/s41467-026-71955-2
+  preprint: https://doi.org/10.1101/2025.07.02.662624
+  code: https://github.com/graeter-group/kimmdy
+
+- title: "PLUMED Tutorials: A collaborative, community-driven learning ecosystem"
+  authors: [G. A. Tribello, M. Bonomi, G. Bussi, C. Camilloni, …, D. Sucerquia, et al.]
+  author_count: 63
+  journal: The Journal of Chemical Physics
+  volume: 162
+  number: "092501"
+  year: 2025
+  date: "2025-03-04"
+  doi: 10.1063/5.0251501
+  preprint: https://arxiv.org/abs/2412.03595
+  links:
+    - label: Tutorials
+      url: https://www.plumed-tutorials.org
+
+- title: "Breaking Strong Alkynyl–Phenyl Bonds: Poly(<em>para</em>-phenylene ethynylene)s under Mechanical Stress"
+  authors: [M. Elter, M. Brosz, D. Sucerquia, A. Kuzhelev, D. C. Kiesewetter, M. Kurth, A. Dreuw, T. F. Prisner, J. Freudenberg, U. H. F. Bunz, F. Gräter]
+  journal: Journal of the American Chemical Society
+  volume: 146
+  pages: 27594–27599
+  year: 2024
+  date: "2024-09-27"
+  doi: 10.1021/jacs.4c08765
+
+- title: "QM/MM methods in studies of coinage metals: copper, silver, and gold interacting with biological and organic molecules"
+  authors: [O. Lopez-Acevedo, D. Sucerquia]
+  journal: "Advances in Physics: X"
+  volume: 8
+  number: 2153625
+  year: 2023
+  date: "2022-12-11"
+  doi: 10.1080/23746149.2022.2153625
+
+- title: "<em>Ab initio</em> metadynamics determination of temperature-dependent free-energy landscape in ultrasmall silver clusters"
+  authors: [D. Sucerquia, C. Parra, P. Cossio, O. Lopez-Acevedo]
+  journal: The Journal of Chemical Physics
+  volume: 156
+  number: 154301
+  year: 2022
+  date: "2022-04-18"
+  doi: 10.1063/5.0082332
+  preprint: https://arxiv.org/abs/2201.08761
+  code: https://github.com/Sucerquia/Silver_ASE-plumed
+  links:
+    - label: Tutorial
+      url: https://github.com/Sucerquia/ASE-PLUMED_tutorial

@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+# sucerquia.github.io
 
-You can use the [editor on GitHub](https://github.com/Sucerquia/sucerquia.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+Source of my personal website: **<https://sucerquia.github.io>**
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The site is built with [Jekyll](https://jekyllrb.com) and published by GitHub Pages on
+every push to `main`. It does not depend on an external theme: layouts, styles and icons
+all live in this repository.
 
-### Markdown
+## Where things live
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+| Content | File |
+| --- | --- |
+| Name, role, contact links, affiliations, menu | `_config.yml` |
+| "About" text on the home page | `index.md` |
+| Research cards on the home page | `_data/research.yml` |
+| Publications | `_data/publications.yml` |
+| Software & tutorials (home section and Software page) | `_data/software.yml` |
+| Software logos and project images | `assets/img/software/` |
+| Education, honors and scientific events (CV page) | `_data/education.yml`, `_data/honors.yml`, `_data/events.yml` |
+| CV page structure and profile text | `cv.html` |
+| Profile photo | `assets/img/profile.png` |
+| Colors and fonts | top of `assets/css/style.css` |
 
-```markdown
-Syntax highlighted code block
+**Adding a publication:** copy an entry in `_data/publications.yml` and edit it. The
+`date` field (`"YYYY-MM-DD"`) sets the order, and the home page shows the three most
+recent entries. Any author containing `Sucerquia` is shown in bold.
 
-# Header 1
-## Header 2
-### Header 3
+**Hiding or adding profile links:** fill in or empty `scholar`, `linkedin`, `orcid`, …
+under `author:` in `_config.yml`.
 
-- Bulleted
-- List
+## Preview locally
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+bundle install
+bundle exec jekyll serve   # then open http://localhost:4000
 ```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Sucerquia/sucerquia.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.

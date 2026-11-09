@@ -1,0 +1,66 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.url == "/" %}
+    {%- assign page_title = site.title %}
+  {%- else %}
+    {%- assign page_title = page.title | append: " · " | append: site.title %}
+  {%- endif %}
+  {%- assign page_description = page.description | default: site.description | strip_newlines | strip %}
+  <title>{{ page_title | escape }}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+  <meta name="author" content="{{ site.author.name | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:type" content="{% if page.url == '/' %}profile{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ site.author.photo | absolute_url }}">
+  <meta name="twitter:card" content="summary">
+
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fcfbf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141518" media="(prefers-color-scheme: dark)">
+  <script>
+    /* Apply a saved light/dark choice before the first paint (toggle lives in assets/js/site.js). */
+    try {
+      var savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inconsolata:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  {%- if page.layout == "home" %}
+  {%- assign same_as = "" | split: "," %}
+  {%- if site.author.github %}{% assign profile = "https://github.com/" | append: site.author.github %}{% assign same_as = same_as | push: profile %}{% endif %}
+  {%- if site.author.orcid %}{% assign profile = "https://orcid.org/" | append: site.author.orcid %}{% assign same_as = same_as | push: profile %}{% endif %}
+  {%- if site.author.scholar %}{% assign profile = "https://scholar.google.com/citations?user=" | append: site.author.scholar %}{% assign same_as = same_as | push: profile %}{% endif %}
+  {%- if site.author.linkedin %}{% assign profile = "https://www.linkedin.com/in/" | append: site.author.linkedin %}{% assign same_as = same_as | push: profile %}{% endif %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "jobTitle": {{ site.author.role | jsonify }},
+    "url": {{ "/" | absolute_url | jsonify }},
+    "image": {{ site.author.photo | absolute_url | jsonify }},
+    "affiliation": [
+      {%- for affiliation in site.affiliations %}
+      {"@type": "ResearchOrganization", "name": {{ affiliation.name | jsonify }}, "url": {{ affiliation.url | jsonify }}}{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ],
+    "sameAs": {{ same_as | jsonify }}
+  }
+  </script>
+  {%- endif %}
+</head>

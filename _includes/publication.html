@@ -1,0 +1,42 @@
+{%- comment -%}
+  One publication entry. Usage: {% include publication.html pub=pub %}
+  Fields come from _data/publications.yml.
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+<li class="pub">
+  <p class="pub__title">
+    {%- if pub.doi -%}
+      <a href="https://doi.org/{{ pub.doi }}">{{ pub.title }}</a>
+    {%- else -%}
+      {{ pub.title }}
+    {%- endif -%}
+  </p>
+  <p class="pub__authors">
+    {%- for author in pub.authors -%}
+      {%- if author contains site.author.highlight -%}<strong class="me">{{ author }}</strong>{%- else -%}{{ author }}{%- endif -%}
+      {%- unless forloop.last %}, {% endunless -%}
+    {%- endfor -%}
+    {%- if pub.author_count %} <span class="pub__count">({{ pub.author_count }} authors)</span>{% endif -%}
+  </p>
+  <p class="pub__venue">
+    <em>{{ pub.journal }}</em>
+    {%- if pub.volume %} <strong>{{ pub.volume }}</strong>{% endif -%}
+    {%- if pub.number %}, {{ pub.number }}{% endif -%}
+    {%- if pub.pages %}, {{ pub.pages }}{% endif %} ({{ pub.year }})
+    {%- if pub.doi %}<span class="print-only"> · doi:{{ pub.doi }}</span>{% endif %}
+  </p>
+  <ul class="chips">
+    {%- if pub.doi %}
+    <li><a class="chip" href="https://doi.org/{{ pub.doi }}">DOI</a></li>
+    {%- endif %}
+    {%- if pub.preprint %}
+    <li><a class="chip" href="{{ pub.preprint }}">Preprint</a></li>
+    {%- endif %}
+    {%- if pub.code %}
+    <li><a class="chip" href="{{ pub.code }}">Code</a></li>
+    {%- endif %}
+    {%- for link in pub.links %}
+    <li><a class="chip" href="{{ link.url }}">{{ link.label }}</a></li>
+    {%- endfor %}
+  </ul>
+</li>

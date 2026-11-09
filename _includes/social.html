@@ -1,0 +1,22 @@
+{%- comment -%}
+  Contact / profile links shown under the name on the home page.
+  Links disappear automatically when the matching field in _config.yml is empty.
+{%- endcomment -%}
+<ul class="social">
+  {%- if site.author.email %}
+  <li><a href="mailto:{{ site.author.email }}">{% include icon.html name="mail" %}<span>Email</span></a></li>
+  {%- endif %}
+  {%- if site.author.github %}
+  <li><a href="https://github.com/{{ site.author.github }}">{% include icon.html name="github" %}<span>GitHub</span></a></li>
+  {%- endif %}
+  {%- if site.author.orcid %}
+  <li><a href="https://orcid.org/{{ site.author.orcid }}">{% include icon.html name="orcid" %}<span>ORCID</span></a></li>
+  {%- endif %}
+  {%- if site.author.scholar %}
+  <li><a href="https://scholar.google.com/citations?user={{ site.author.scholar }}">{% include icon.html name="scholar" %}<span>Scholar</span></a></li>
+  {%- endif %}
+  {%- if site.author.linkedin %}
+  <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">{% include icon.html name="linkedin" %}<span>LinkedIn</span></a></li>
+  {%- endif %}
+  <li><a href="{{ '/cv/' | relative_url }}">{% include icon.html name="cv" %}<span>CV</span></a></li>
+</ul>

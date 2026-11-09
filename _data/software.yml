@@ -1,0 +1,84 @@
+# Software and tutorials, shown on the home page and on the Software page.
+# `images` (logos or a project picture) appear only on the Software page;
+# `featured: true` makes that card span the full width there.
+
+- name: EPRoducer
+  role: Developer
+  featured: true
+  images:
+    - src: /assets/img/software/eproducer.png
+      alt: EPRoducer logo
+  summary: >-
+    Finds which radicals explain an electron paramagnetic resonance (EPR)
+    spectrum: computes the g-values and hyperfine couplings of candidate
+    radicals with ORCA, predicts their spectra with EasySpin, and fits the
+    experimental spectrum to give the proportion of each radical in the sample.
+  links:
+    - label: Website
+      url: https://graeter-group.github.io/EPRoducer/
+    - label: GitHub
+      url: https://github.com/graeter-group/EPRoducer
+
+- name: SITH
+  role: Developer
+  images:
+    - src: /assets/img/software/sith.png
+      alt: SITH logo
+  summary: >-
+    Splitting Intramolecular Tension via stretcHing: decomposes the total
+    electronic energy change of a stretched molecule into contributions from
+    its individual degrees of freedom.
+  links:
+    - label: Website
+      url: https://graeter-group.github.io/sith/
+    - label: GitHub
+      url: https://github.com/graeter-group/sith
+    - label: Paper
+      url: https://doi.org/10.1063/5.0325167
+
+- name: PLUMED calculator in ASE
+  role: Developer
+  images:
+    - src: /assets/img/software/ase.png
+      alt: ASE logo
+    - src: /assets/img/software/plumed.png
+      alt: PLUMED logo
+  summary: >-
+    I added the PLUMED calculator to ASE, the Atomic Simulation Environment.
+    It runs biased simulations such as metadynamics and well-tempered
+    metadynamics, and computes PLUMED's collective variables on the fly or in
+    post-processing, with any simulation code that ASE interfaces.
+  links:
+    - label: Docs
+      url: https://docs.ase-lib.org/ase/calculators/plumed.html
+    - label: Paper
+      url: https://doi.org/10.1063/5.0082332
+
+- name: ASE–PLUMED tutorial
+  role: Author
+  images:
+    - src: /assets/img/software/ase-plumed-tutorial.png
+      alt: Stable isomers of the planar seven-atom Lennard-Jones cluster used in the tutorial
+  summary: >-
+    A hands-on guide to the PLUMED calculator of ASE, from collective
+    variables computed on the fly to well-tempered metadynamics of a silver
+    cluster with <em>ab initio</em> molecular dynamics.
+  links:
+    - label: GitHub
+      url: https://github.com/Sucerquia/ASE-PLUMED_tutorial
+
+- name: KIMMDY
+  role: Paper co-author
+  images:
+    - src: /assets/img/software/kimmdy.png
+      alt: KIMMDY logo
+  summary: >-
+    Reactive molecular dynamics pipeline for GROMACS that combines kinetic
+    Monte Carlo and molecular dynamics.
+  links:
+    - label: GitHub
+      url: https://github.com/graeter-group/kimmdy
+    - label: Docs
+      url: https://graeter-group.github.io/kimmdy/
+    - label: Paper
+      url: https://doi.org/10.1038/s41467-026-71955-2

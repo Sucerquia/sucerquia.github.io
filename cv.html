@@ -1,0 +1,137 @@
+---
+layout: default
+title: CV
+description: Curriculum vitae of Daniel Sucerquia Gaviria, covering education, publications, honors and scientific events.
+permalink: /cv/
+---
+<article class="cv">
+  <header class="cv-header">
+    <div>
+      <p class="kicker">Curriculum Vitae</p>
+      <h1 class="page-title">{{ site.author.name }}</h1>
+      <p class="cv-header__role">
+        {{ site.author.role }} ·
+        {% for affiliation in site.affiliations %}{{ affiliation.short }}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
+      </p>
+      <ul class="cv-contact">
+        {%- if site.author.email %}
+        <li>{% include icon.html name="mail" %}<a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+        {%- endif %}
+        {%- if site.author.github %}
+        <li>{% include icon.html name="github" %}<a href="https://github.com/{{ site.author.github }}">github.com/{{ site.author.github }}</a></li>
+        {%- endif %}
+        {%- if site.author.orcid %}
+        <li>{% include icon.html name="orcid" %}<a href="https://orcid.org/{{ site.author.orcid }}">orcid.org/{{ site.author.orcid }}</a></li>
+        {%- endif %}
+        {%- if site.author.scholar %}
+        <li>{% include icon.html name="scholar" %}<a href="https://scholar.google.com/citations?user={{ site.author.scholar }}">Google Scholar</a></li>
+        {%- endif %}
+        {%- if site.author.linkedin %}
+        <li>{% include icon.html name="linkedin" %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a></li>
+        {%- endif %}
+        <li>{% include icon.html name="globe" %}<a href="{{ '/' | absolute_url }}">{{ site.url | remove: "https://" }}</a></li>
+      </ul>
+    </div>
+    <img class="cv-header__photo" src="{{ site.author.photo | relative_url }}" width="200" height="200"
+         alt="Portrait of {{ site.author.name }}">
+  </header>
+
+  <div class="cv-actions">
+    <button class="button" type="button" data-print>{% include icon.html name="printer" %}Print or save as PDF</button>
+  </div>
+
+  <section class="section" aria-labelledby="cv-profile">
+    <h2 class="section-title" id="cv-profile">Profile</h2>
+    <p>
+      Advanced proficiency in multiscale modeling and simulation, with extensive experience in
+      <strong>quantum chemistry, molecular dynamics (MD), enhanced sampling methods, and machine
+      learning applied to molecular systems</strong>. During my PhD, I developed a novel
+      computational framework (SITH) to analyze energy distributions across different degrees of
+      freedom in stretched molecules, achieving high accuracy through quantum chemical methods. In
+      the final stage of my PhD, I am pioneering the use of <strong>graph neural networks (GNNs) and
+      generative models</strong> to predict electron paramagnetic resonance (EPR) spectra and
+      associate them with related chemical space, enabling more efficient and accurate
+      interpretation of experimental data. I also actively integrate modern tools, including
+      agentic AI, to support and accelerate computational research workflows.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="cv-education">
+    <h2 class="section-title" id="cv-education">Education</h2>
+    <ol class="timeline">
+      {%- for item in site.data.education %}
+      <li class="timeline__item">
+        <span class="timeline__date">{{ item.period }}</span>
+        <span class="timeline__marker" aria-hidden="true">{% include icon.html name="bookmark" %}</span>
+        <div class="timeline__body">
+          <h3>{{ item.degree }}</h3>
+          <p>{{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}</p>
+          {%- if item.thesis %}
+          <p>Thesis: <em>“{{ item.thesis }}”</em></p>
+          {%- endif %}
+          {%- if item.note %}
+          <p>{{ item.note }}</p>
+          {%- endif %}
+          {%- if item.grade %}
+          <p>{{ item.grade }}</p>
+          {%- endif %}
+          <p class="muted">Supervisor{% if item.supervisors.size > 1 %}s{% endif %}: {{ item.supervisors | join: ", " }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="cv-honors">
+    <h2 class="section-title" id="cv-honors">Honors and awards</h2>
+    <ol class="timeline">
+      {%- for item in site.data.honors %}
+      <li class="timeline__item">
+        <span class="timeline__date">{{ item.date }}</span>
+        <span class="timeline__marker" aria-hidden="true">{% include icon.html name="bookmark" %}</span>
+        <div class="timeline__body">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.organization }}</p>
+          {%- if item.detail %}
+          <p class="muted">{{ item.detail }}</p>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="cv-publications">
+    <h2 class="section-title" id="cv-publications">Publications</h2>
+    {%- assign publications = site.data.publications | sort: "date" | reverse %}
+    <ol class="pubs pubs--numbered">
+      {%- for pub in publications %}
+      {% include publication.html pub=pub %}
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="cv-events">
+    <h2 class="section-title" id="cv-events">Selected scientific events</h2>
+    <ol class="timeline">
+      {%- for item in site.data.events %}
+      <li class="timeline__item">
+        <span class="timeline__date">{{ item.date }}</span>
+        <span class="timeline__marker" aria-hidden="true">{% include icon.html name="bookmark" %}</span>
+        <div class="timeline__body">
+          <h3>{{ item.name }}{% if item.badge %} <span class="tag">{{ item.badge }}</span>{% endif %}</h3>
+          <p>
+            {{ item.place }} · <em>{{ item.role }}</em>
+            {%- if item.link %} · <a href="{{ item.link.url }}">{{ item.link.label }}</a>{% endif %}
+          </p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="cv-references">
+    <h2 class="section-title" id="cv-references">References</h2>
+    <p>Available on request.</p>
+  </section>
+</article>

@@ -1,0 +1,40 @@
+# Research topics shown as cards on the home page (in this order).
+# `featured: true` makes a card span the full width. Summaries may contain HTML.
+
+- label: Current focus
+  featured: true
+  title: Machine learning for EPR spectroscopy
+  summary: >-
+    Graph neural networks and generative models that predict electron
+    paramagnetic resonance (EPR) spectra and connect them to related chemical
+    space, so that experimental data can be interpreted faster and more
+    accurately.
+
+- label: PhD · HITS & MPIP
+  title: Chemical bonds under mechanical stress
+  summary: >-
+    SITH splits the electronic energy that a stretched molecule accumulates
+    into contributions from its individual degrees of freedom, using quantum
+    chemistry to predict which bonds a mechanical force destabilizes.
+  links:
+    - label: SITH paper (J. Chem. Phys. 2026)
+      url: https://doi.org/10.1063/5.0325167
+    - label: Polymers under stress (JACS 2024)
+      url: https://doi.org/10.1021/jacs.4c08765
+    - label: SITH code
+      url: https://github.com/graeter-group/sith
+
+- label: MSc · Universidad de Antioquia
+  title: Free-energy landscapes of metal clusters
+  summary: >-
+    <em>Ab initio</em> metadynamics showing how the free-energy landscape of
+    ultrasmall silver clusters changes with temperature. The work also
+    presented the PLUMED calculator of ASE, which connects enhanced sampling
+    with the many simulation codes that ASE interfaces.
+  links:
+    - label: Silver clusters (J. Chem. Phys. 2022)
+      url: https://doi.org/10.1063/5.0082332
+    - label: QM/MM of coinage metals (Adv. Phys. X)
+      url: https://doi.org/10.1080/23746149.2022.2153625
+    - label: ASE–PLUMED tutorial
+      url: https://github.com/Sucerquia/ASE-PLUMED_tutorial
